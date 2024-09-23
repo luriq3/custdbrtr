@@ -614,7 +614,7 @@ mystic60 = macro(100, "Mystic Defense/Kai",  function()
     say('Mystic Defense') 
   end
   if (hppercent() >= castBelowHp and hasManaShield()) then
-    say('Mystic Kai')
+    say('Mystic Cancel')
   end
 end,hpPanel5)
 
