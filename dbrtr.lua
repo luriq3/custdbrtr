@@ -424,19 +424,6 @@ addIcon("Buff", {item=12544, text="Buff"},buffz)
 
 
 
-local NomeDoJogador = storage.nomeDoJogador or "DBO"
-local MensagemPrivada = "Inimigos avistado! "
-local atraso = 5000 
-
-local MensagemAlerta = macro(1000, "ALARM", function() end)
-onCreatureAppear(function(monstro)
-  if MensagemAlerta.isOff() then return end
-  if monstro:isPlayer() and monstro ~= player then
-    sayPrivate(NomeDoJogador, MensagemPrivada .. ">> " .. monstro:getName() .. " <<")
-    playSound("/sounds/alarm.ogg")
-    delay(atraso)
-  end
-end)
 
 
 
@@ -1794,11 +1781,7 @@ end)
 
 
 
-UI.Label("Alarm>Receber PM No:")
-UI.TextEdit(storage.nomeDoJogador or "Nome Para Receber", function(widget, text)
-  storage.nomeDoJogador = text
-  NomeDoJogador = text
-end)
+
 
 UI.Label('Stamina>Hora Pra usar')
 addTextEdit("hora", storage.hora or "usar em", function(widget, text) 
