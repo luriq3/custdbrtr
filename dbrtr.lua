@@ -609,7 +609,7 @@ end
 
 local castBelowHp = 70 
 
-mystic60 = macro(100, "Mystic Defense/Kai",  function()
+mystic60 = macro(100, "Defense/Cancel",  function()
   if (hppercent() < castBelowHp and not hasManaShield()) then
     say('Mystic Defense') 
   end
