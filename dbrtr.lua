@@ -532,7 +532,7 @@ Panel
 
 
 ui.linkdosite.onClick = function(widget)
-g_platform.openUrl("http://dboretroserve1.ddns.net/")
+g_platform.openUrl("https://dboretroserve1.com.br/?news")
 end
 
 
