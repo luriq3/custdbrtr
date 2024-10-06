@@ -439,7 +439,26 @@ addIcon("Buff", {item=12544, text="Buff"},buffz)
 
 
 
-
+if type(storage.moneyItems) ~= "table" then
+  storage.moneyItems = {3031, 3035}
+end
+macro(1000, "Change Money", function()
+  if not storage.moneyItems[1] then return end
+  local containers = g_game.getContainers()
+  for index, container in pairs(containers) do
+    if not container.lootContainer then
+      for i, item in ipairs(container:getItems()) do
+        if item:getCount() == 100 then
+          for m, moneyId in ipairs(storage.moneyItems) do
+            if item:getId() == moneyId.id then
+              return g_game.use(item)
+            end
+          end
+        end
+      end
+    end
+  end
+end)
 
 
 
@@ -1762,7 +1781,11 @@ end)
 UI.Separator()
 
 
-
+local moneyContainer = UI.Container(function(widget, items)
+  storage.moneyItems = items
+end, true)
+moneyContainer:setHeight(35)
+moneyContainer:setItems(storage.moneyItems)
 
 
 
